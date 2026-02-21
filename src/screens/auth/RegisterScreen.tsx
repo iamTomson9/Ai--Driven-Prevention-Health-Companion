@@ -1,4 +1,3 @@
-// src/screens/auth/RegisterScreen.tsx
 import React, { useState } from 'react';
 import {
   View,
@@ -102,13 +101,13 @@ export default function RegisterScreen({ navigation }: any) {
         <View style={styles.form}>
           <Input
             label="Full Name"
-            placeholder="John Doe"
+            placeholder="Enter your full names"
             value={name}
             onChangeText={setName}
           />
           <Input
             label="Email Address"
-            placeholder="you@example.com"
+            placeholder="Enter your email address"
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"
@@ -122,14 +121,14 @@ export default function RegisterScreen({ navigation }: any) {
           />
           <Input
             label="Confirm Password"
-            placeholder="Repeat password"
+            placeholder="Re-enter password"
             value={confirmPassword}
             onChangeText={setConfirmPassword}
             secureTextEntry
           />
 
           <Button
-            title="Create Account"
+            title="Sign Up"
             onPress={handleRegister}
             loading={loading}
             style={{ marginTop: SPACING.sm }}

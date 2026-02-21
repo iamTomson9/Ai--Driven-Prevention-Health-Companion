@@ -1,4 +1,3 @@
-// src/screens/admin/AIAnalyticsScreen.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, ScrollView, StyleSheet, RefreshControl } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -57,7 +56,8 @@ export default function AIAnalyticsScreen() {
           </View>
         </Card>
 
-        {/* Top Keywords */}
+        {/* keywords that patients often mention when they need help, which can help us to optimize the AI assistant's response and the health education materials we provide to the patients */}
+
         {aiData?.topKeywords && aiData.topKeywords.length > 0 && (
           <>
             <SectionHeader title="Top Keywords from Patients" />

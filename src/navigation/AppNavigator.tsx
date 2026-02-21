@@ -1,4 +1,3 @@
-// src/navigation/AppNavigator.tsx
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -9,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../hooks/useAuth';
 import { COLORS } from '../constants/theme';
 
-// Auth Screens
+// User Authentication screens
 import LoginScreen from '../screens/auth/LoginScreen';
 import RegisterScreen from '../screens/auth/RegisterScreen';
 
@@ -20,7 +19,7 @@ import PatientAppointmentsScreen from '../screens/patient/AppointmentsScreen';
 import PatientChatScreen from '../screens/patient/ChatScreen';
 import PatientTodoScreen from '../screens/patient/TodoScreen';
 
-// Clinician Screens
+// Employee/clinician Screens
 import ClinicianPatientsScreen from '../screens/clinician/PatientsScreen';
 import ClinicianAppointmentsScreen from '../screens/clinician/AppointmentsScreen';
 import ClinicianEnquiriesScreen from '../screens/clinician/EnquiriesScreen';
@@ -35,7 +34,7 @@ import AdminLoginHistoryScreen from '../screens/admin/LoginHistoryScreen';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// ─── Patient Tabs ──────────────────────────────────────────────
+// Patient Tabs
 function PatientTabs() {
   return (
     <Tab.Navigator
@@ -65,7 +64,7 @@ function PatientTabs() {
   );
 }
 
-// ─── Clinician Tabs ────────────────────────────────────────────
+// Employee/Clinician Tabs 
 function ClinicianTabs() {
   return (
     <Tab.Navigator
@@ -95,7 +94,7 @@ function ClinicianTabs() {
   );
 }
 
-// ─── Admin Tabs ────────────────────────────────────────────────
+// Admin Tabs
 function AdminTabs() {
   return (
     <Tab.Navigator
@@ -133,7 +132,7 @@ function AdminTabs() {
   );
 }
 
-// ─── Root Navigator ────────────────────────────────────────────
+// App Root Navigator
 export default function AppNavigator() {
   const { user, loading } = useAuth();
 

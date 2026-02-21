@@ -1,8 +1,7 @@
-// src/constants/theme.ts
 export const COLORS = {
-  primary: '#2563EB',       // Blue
+  primary: '#2563EB',       
   primaryLight: '#DBEAFE',
-  secondary: '#10B981',     // Green
+  secondary: '#10B981',     
   secondaryLight: '#D1FAE5',
   danger: '#EF4444',
   dangerLight: '#FEE2E2',

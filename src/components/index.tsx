@@ -1,4 +1,3 @@
-// src/components/common/index.tsx
 import React, { ReactNode } from 'react';
 import {
   View,
@@ -12,7 +11,7 @@ import {
 } from 'react-native';
 import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 
-// ─── Button ───────────────────────────────────────────────────
+//Button styling
 interface ButtonProps {
   title: string;
   onPress: () => void;
@@ -82,7 +81,7 @@ export const Button = ({
   );
 };
 
-// ─── Card ─────────────────────────────────────────────────────
+//Card Views 
 interface CardProps {
   children: ReactNode;
   style?: ViewStyle;
@@ -104,14 +103,14 @@ export const Card = ({ children, style, onPress }: CardProps) => {
   return <View style={[styles.card, SHADOWS.sm, style]}>{children}</View>;
 };
 
-// ─── Input ────────────────────────────────────────────────────
+//Text Input fields
 interface InputProps {
   label?: string;
   placeholder?: string;
   value: string;
   onChangeText: (text: string) => void;
   secureTextEntry?: boolean;
-  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
+  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone';
   multiline?: boolean;
   numberOfLines?: number;
   style?: ViewStyle;
@@ -155,7 +154,7 @@ export const Input = ({
   </View>
 );
 
-// ─── Badge ────────────────────────────────────────────────────
+// Badge (small information not touchble information buttons)
 interface BadgeProps {
   label: string;
   color?: string;
@@ -172,7 +171,7 @@ export const Badge = ({
   </View>
 );
 
-// ─── Section Header ───────────────────────────────────────────
+//Header
 interface SectionHeaderProps {
   title: string;
   action?: { label: string; onPress: () => void };
@@ -189,7 +188,7 @@ export const SectionHeader = ({ title, action }: SectionHeaderProps) => (
   </View>
 );
 
-// ─── Empty State ──────────────────────────────────────────────
+// Empty State
 interface EmptyStateProps {
   title: string;
   subtitle?: string;
@@ -204,7 +203,7 @@ export const EmptyState = ({ title, subtitle, icon }: EmptyStateProps) => (
   </View>
 );
 
-// ─── Screen Header ────────────────────────────────────────────
+//Screen Header
 interface ScreenHeaderProps {
   title: string;
   subtitle?: string;
@@ -221,7 +220,7 @@ export const ScreenHeader = ({ title, subtitle, right }: ScreenHeaderProps) => (
   </View>
 );
 
-// ─── Stat Card ────────────────────────────────────────────────
+// Stats Card
 interface StatCardProps {
   label: string;
   value: string | number;
@@ -244,7 +243,7 @@ export const StatCard = ({
   </View>
 );
 
-// ─── Styles ───────────────────────────────────────────────────
+// Styles css
 const styles = StyleSheet.create({
   button: {
     borderRadius: BORDER_RADIUS.md,

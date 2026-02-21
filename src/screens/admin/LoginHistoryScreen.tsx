@@ -1,4 +1,3 @@
-// src/screens/admin/LoginHistoryScreen.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, FlatList, StyleSheet, RefreshControl, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';

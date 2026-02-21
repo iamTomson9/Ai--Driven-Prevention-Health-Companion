@@ -1,4 +1,3 @@
-// src/screens/auth/LoginScreen.tsx
 import React, { useState } from 'react';
 import {
   View,
@@ -30,7 +29,7 @@ export default function LoginScreen({ navigation }: any) {
     setLoading(true);
     try {
       await loginUser(email.trim(), password);
-      // Navigation handled by AppNavigator via auth state
+      // Navigation handled by AppNavigator through the user Authentication state
     } catch (err: any) {
       Alert.alert('Login Failed', err.message || 'Invalid credentials. Please try again.');
     } finally {
@@ -47,7 +46,7 @@ export default function LoginScreen({ navigation }: any) {
         contentContainerStyle={styles.container}
         keyboardShouldPersistTaps="handled"
       >
-        {/* Logo / Brand */}
+        {/* Logo We will design this later */}
         <View style={styles.brand}>
           <View style={styles.logoCircle}>
             <Ionicons name="pulse" size={36} color={COLORS.white} />
@@ -63,7 +62,7 @@ export default function LoginScreen({ navigation }: any) {
 
           <Input
             label="Email Address"
-            placeholder="you@example.com"
+            placeholder="Enter your email"
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"

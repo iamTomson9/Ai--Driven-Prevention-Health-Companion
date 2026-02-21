@@ -1,4 +1,3 @@
-// src/screens/admin/UserManagementScreen.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View, Text, ScrollView, StyleSheet, TouchableOpacity,
@@ -21,7 +20,7 @@ export default function UserManagementScreen() {
   const [roleFilter, setRoleFilter] = useState<UserRole | 'all'>('all');
   const [showCreate, setShowCreate] = useState(false);
 
-  // Create form
+  // Admin User Creation form
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -131,7 +130,7 @@ export default function UserManagementScreen() {
         )}
       </ScrollView>
 
-      {/* Create User Modal */}
+      {/* User Modal */}
       <Modal visible={showCreate} transparent animationType="slide">
         <ScrollView contentContainerStyle={styles.overlay}>
           <View style={styles.modal}>

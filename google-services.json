@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "215351716227",
+    "project_id": "ai-hcp267",
+    "storage_bucket": "ai-hcp267.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215351716227:android:f29300014c92322108eeb6",
+        "android_client_info": {
+          "package_name": "com.autobots.ai_hcp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMPitIN08chm0ObIF9pdUXQPgjzTarNq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

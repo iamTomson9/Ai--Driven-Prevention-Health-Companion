@@ -1,0 +1,127 @@
+// firestore.rules
+// Deploy with: firebase deploy --only firestore:rules
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuth() {
+      return request.auth != null;
+    }
+
+    function getUser() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function hasRole(role) {
+      return isAuth() && getUser().role == role;
+    }
+
+    function isOwner(userId) {
+      return isAuth() && request.auth.uid == userId;
+    }
+
+    function isActiveUser() {
+      return isAuth() && getUser().isActive == true;
+    }
+
+    // ─── Users collection ──────────────────────────────────────
+    match /users/{userId} {
+      allow read: if isAuth();
+      allow create: if isAuth() && request.auth.uid == userId;
+      allow update: if isOwner(userId) || hasRole('admin');
+      allow delete: if hasRole('admin');
+    }
+
+    // ─── Patients ──────────────────────────────────────────────
+    match /patients/{patientId} {
+      allow read: if isAuth() && (isOwner(patientId) || hasRole('clinician') || hasRole('admin'));
+      allow create: if isAuth() && request.auth.uid == patientId;
+      allow update: if isOwner(patientId) || hasRole('clinician') || hasRole('admin');
+      allow delete: if hasRole('admin');
+    }
+
+    // ─── Clinicians ────────────────────────────────────────────
+    match /clinicians/{clinicianId} {
+      allow read: if isAuth();
+      allow create: if isAuth() && request.auth.uid == clinicianId;
+      allow update: if isOwner(clinicianId) || hasRole('admin');
+      allow delete: if hasRole('admin');
+    }
+
+    // ─── Medication Logs ───────────────────────────────────────
+    match /medicationLogs/{logId} {
+      allow read: if isAuth() && (
+        resource.data.patientId == request.auth.uid ||
+        hasRole('clinician') ||
+        hasRole('admin')
+      );
+      allow create: if isAuth();
+      allow update: if isAuth() && (
+        resource.data.patientId == request.auth.uid ||
+        hasRole('clinician')
+      );
+      allow delete: if hasRole('admin');
+    }
+
+    // ─── Appointments ──────────────────────────────────────────
+    match /appointments/{appointmentId} {
+      allow read: if isAuth() && (
+        resource.data.patientId == request.auth.uid ||
+        resource.data.clinicianId == request.auth.uid ||
+        hasRole('admin')
+      );
+      allow create: if hasRole('clinician') || hasRole('admin');
+      allow update: if isAuth() && (
+        resource.data.clinicianId == request.auth.uid ||
+        hasRole('admin')
+      );
+      allow delete: if hasRole('admin');
+    }
+
+    // ─── Chat Messages ─────────────────────────────────────────
+    match /chatMessages/{messageId} {
+      allow read: if isAuth() && (
+        resource.data.patientId == request.auth.uid ||
+        hasRole('clinician') ||
+        hasRole('admin')
+      );
+      allow create: if isAuth();
+      allow update: if false; // Messages are immutable
+      allow delete: if hasRole('admin');
+    }
+
+    // ─── Escalated Enquiries ───────────────────────────────────
+    match /escalatedEnquiries/{enquiryId} {
+      allow read: if isAuth() && (
+        resource.data.patientId == request.auth.uid ||
+        resource.data.assignedClinicianId == request.auth.uid ||
+        hasRole('admin')
+      );
+      allow create: if isAuth();
+      allow update: if isAuth() && (
+        resource.data.assignedClinicianId == request.auth.uid ||
+        hasRole('admin')
+      );
+      allow delete: if hasRole('admin');
+    }
+
+    // ─── Todos ─────────────────────────────────────────────────
+    match /todos/{todoId} {
+      allow read, write: if isAuth() && (
+        resource == null || resource.data.userId == request.auth.uid || hasRole('admin')
+      );
+      allow delete: if isAuth() && (
+        resource.data.userId == request.auth.uid || hasRole('admin')
+      );
+    }
+
+    // ─── Login History ─────────────────────────────────────────
+    match /loginHistory/{historyId} {
+      allow read: if hasRole('admin');
+      allow create: if isAuth();
+      allow update, delete: if false;
+    }
+  }
+}

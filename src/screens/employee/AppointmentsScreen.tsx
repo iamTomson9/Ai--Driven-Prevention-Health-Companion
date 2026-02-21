@@ -1,4 +1,3 @@
-// src/screens/clinician/AppointmentsScreen.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View, Text, ScrollView, StyleSheet, Modal, TouchableOpacity, Alert, RefreshControl,
@@ -24,7 +23,7 @@ export default function ClinicianAppointmentsScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [showCreate, setShowCreate] = useState(false);
 
-  // Form state
+  // Form
   const [selectedPatientId, setSelectedPatientId] = useState('');
   const [apptType, setApptType] = useState<'physical' | 'virtual'>('physical');
   const [apptDate, setApptDate] = useState('');
@@ -143,7 +142,7 @@ export default function ClinicianAppointmentsScreen() {
         )}
       </ScrollView>
 
-      {/* Create Appointment Modal */}
+      {/*Appointment Modal */}
       <Modal visible={showCreate} transparent animationType="slide">
         <ScrollView contentContainerStyle={styles.overlay}>
           <View style={styles.modal}>

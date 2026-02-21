@@ -1,5 +1,3 @@
-// src/types/index.ts
-
 export type UserRole = 'patient' | 'clinician' | 'admin';
 
 export interface User {
@@ -31,13 +29,13 @@ export interface Admin extends User {
   role: 'admin';
 }
 
-// ─── Medication ────────────────────────────────────────────
+// Medication 
 export interface Medication {
   id: string;
   name: string;
   dosage: string;
-  frequency: string; // e.g. "Twice daily"
-  times: string[];   // e.g. ["08:00", "20:00"]
+  frequency: string; // gore o tsaya melemo ga kafe ka letsatsi
+  times: string[];   // time of medication
   prescribedBy: string; // clinicianId
   startDate: string;
   endDate?: string;
@@ -53,10 +51,10 @@ export interface MedicationLog {
   takenAt?: string;
   status: 'pending' | 'taken' | 'missed' | 'skipped';
   note?: string;
-  date: string; // YYYY-MM-DD
+  date: string; 
 }
 
-// ─── Appointment ────────────────────────────────────────────
+// Appointment
 export type AppointmentType = 'physical' | 'virtual';
 export type AppointmentStatus = 'scheduled' | 'completed' | 'cancelled' | 'rescheduled';
 
@@ -68,15 +66,15 @@ export interface Appointment {
   clinicianName: string;
   type: AppointmentType;
   status: AppointmentStatus;
-  scheduledAt: string; // ISO datetime
-  duration: number;    // minutes
-  venue?: string;      // for physical
-  meetingLink?: string; // for virtual
+  scheduledAt: string; 
+  duration: number;   
+  venue?: string;      
+  meetingLink?: string; 
   notes?: string;
   createdAt: string;
 }
 
-// ─── Todo ────────────────────────────────────────────────────
+// Todo 
 export interface TodoItem {
   id: string;
   userId: string;
@@ -89,7 +87,7 @@ export interface TodoItem {
   createdAt: string;
 }
 
-// ─── AI Chat ─────────────────────────────────────────────────
+// AI Chat
 export type MessageSender = 'patient' | 'ai' | 'clinician';
 export type EscalationStatus = 'pending' | 'reviewed' | 'resolved';
 
@@ -117,7 +115,7 @@ export interface EscalatedEnquiry {
   assignedClinicianId?: string;
 }
 
-// ─── Video Call ───────────────────────────────────────────────
+// Video Call
 export interface VideoCall {
   id: string;
   patientId: string;
@@ -129,7 +127,7 @@ export interface VideoCall {
   initiatedBy: string;
 }
 
-// ─── Analytics ────────────────────────────────────────────────
+//Analytics 
 export interface MedicationAdherence {
   patientId: string;
   patientName: string;
@@ -150,7 +148,7 @@ export interface LoginHistory {
   ipAddress?: string;
 }
 
-// ─── Navigation ───────────────────────────────────────────────
+// Navigation 
 export type RootStackParamList = {
   Auth: undefined;
   PatientTabs: undefined;

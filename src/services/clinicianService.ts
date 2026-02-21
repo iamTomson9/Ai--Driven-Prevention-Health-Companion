@@ -1,4 +1,3 @@
-// src/services/clinicianService.ts
 import {
   collection,
   doc,
@@ -25,14 +24,14 @@ import {
 } from '../types';
 import { generateDailyMedicationLogs } from './patientService';
 
-// ─── Clinician Profile ────────────────────────────────────────
+// Clinician Profile 
 export const getClinicianProfile = async (clinicianId: string): Promise<Clinician | null> => {
   const snap = await getDoc(doc(db, 'clinicians', clinicianId));
   if (!snap.exists()) return null;
   return { ...snap.data(), uid: snap.id } as Clinician;
 };
 
-// ─── Patients ─────────────────────────────────────────────────
+// Patients
 export const getClinicianPatients = async (clinicianId: string): Promise<Patient[]> => {
   const q = query(
     collection(db, 'patients'),
@@ -67,7 +66,7 @@ export const setPatientDiagnoses = async (
   await updateDoc(doc(db, 'patients', patientId), { diagnoses });
 };
 
-// ─── Medications ──────────────────────────────────────────────
+// Medications
 export const setPatientMedications = async (
   patientId: string,
   medications: Medication[]
@@ -105,7 +104,7 @@ export const removeMedicationFromPatient = async (
   await updateDoc(doc(db, 'patients', patientId), { medications: updatedMeds });
 };
 
-// ─── Appointments ─────────────────────────────────────────────
+// Appointments
 export const getClinicianAppointments = async (clinicianId: string): Promise<Appointment[]> => {
   const q = query(
     collection(db, 'appointments'),
@@ -136,7 +135,7 @@ export const cancelAppointment = async (appointmentId: string): Promise<void> =>
   });
 };
 
-// ─── Escalated Enquiries ──────────────────────────────────────
+// Escalated Enquiries
 export const getEscalatedEnquiries = async (
   clinicianId: string
 ): Promise<EscalatedEnquiry[]> => {
@@ -166,7 +165,7 @@ export const markEnquiryReviewed = async (enquiryId: string): Promise<void> => {
   });
 };
 
-// ─── Analytics ────────────────────────────────────────────────
+// Patient Analytics
 export const getPatientMedicationAdherence = async (
   patientId: string,
   period: 'week' | 'month'

@@ -1,4 +1,3 @@
-// src/services/authService.ts
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -18,7 +17,7 @@ import {
 import { auth, db } from './firebase';
 import { User, UserRole, LoginHistory } from '../types';
 
-// ─── Sign Up ──────────────────────────────────────────────────
+// User Sign Up
 export const registerUser = async (
   email: string,
   password: string,
@@ -58,7 +57,7 @@ export const registerUser = async (
   return userData;
 };
 
-// ─── Sign In ──────────────────────────────────────────────────
+// User Sign In 
 export const loginUser = async (email: string, password: string): Promise<User> => {
   const credential = await signInWithEmailAndPassword(auth, email, password);
   const userDoc = await getDoc(doc(db, 'users', credential.user.uid));
@@ -81,19 +80,19 @@ export const loginUser = async (email: string, password: string): Promise<User> 
   return userData;
 };
 
-// ─── Sign Out ─────────────────────────────────────────────────
+//User Sign Out
 export const logoutUser = async (): Promise<void> => {
   await signOut(auth);
 };
 
-// ─── Get Current User Profile ─────────────────────────────────
+//Get Current User Profile
 export const getUserProfile = async (uid: string): Promise<User | null> => {
   const userDoc = await getDoc(doc(db, 'users', uid));
   if (!userDoc.exists()) return null;
   return userDoc.data() as User;
 };
 
-// ─── Toggle User Active Status (Admin) ───────────────────────
+//Toggle User Active Status
 export const toggleUserStatus = async (uid: string, isActive: boolean): Promise<void> => {
   await updateDoc(doc(db, 'users', uid), { isActive });
 };

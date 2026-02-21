@@ -1,4 +1,3 @@
-// src/screens/patient/MedicationsScreen.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,

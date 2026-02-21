@@ -1,4 +1,3 @@
-// src/services/chatService.ts
 import {
   collection,
   addDoc,
@@ -26,7 +25,7 @@ const shouldEscalate = (message: string): boolean => {
   return ESCALATION_KEYWORDS.some((kw) => lower.includes(kw));
 };
 
-// ─── Send Message to Botpress ─────────────────────────────────
+// Send Message to Botpress
 export const sendMessageToAI = async (
   patientId: string,
   message: string,
@@ -44,7 +43,7 @@ export const sendMessageToAI = async (
   };
   await addDoc(collection(db, 'chatMessages'), patientMsg);
 
-  // Check for emergency keywords BEFORE sending to AI
+  // Check for emergency keywords BEFORE sending to Botpress
   const escalate = shouldEscalate(message);
 
   let aiReply = '';
@@ -62,11 +61,11 @@ export const sendMessageToAI = async (
     });
 
     const data = await response.json();
-    aiReply = data.reply || data.text || 'I understand your concern. A clinician will follow up shortly.';
+    aiReply = data.reply || data.text || 'I understand your concern. A doctor will follow up shortly.';
   } catch (err) {
     aiReply = escalate
-      ? 'This message has been escalated to your clinician for urgent review.'
-      : 'I\'m sorry, I\'m having trouble connecting. Please try again or contact your clinician directly.';
+      ? 'This message has been escalated to your doctor for urgent review.'
+      : 'I amm sorry, I am having trouble connecting. Please try again or contact your doctor directly.';
   }
 
   // Save AI response
@@ -88,7 +87,7 @@ export const sendMessageToAI = async (
   return { reply: aiReply, escalated: escalate };
 };
 
-// ─── Escalate to Clinician ────────────────────────────────────
+// Escalate to Clinician 
 const escalateToClinicianr = async (
   patientId: string,
   sessionId: string,
@@ -118,7 +117,7 @@ const escalateToClinicianr = async (
   await addDoc(collection(db, 'escalatedEnquiries'), enquiry);
 };
 
-// ─── Get Chat History ─────────────────────────────────────────
+// Get Chat History
 export const getChatHistory = async (
   patientId: string,
   sessionId?: string

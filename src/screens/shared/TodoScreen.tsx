@@ -1,4 +1,3 @@
-// src/screens/shared/TodoScreen.tsx  (used by both Patient and Clinician via different imports)
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View, Text, ScrollView, StyleSheet, TouchableOpacity,
@@ -177,7 +176,7 @@ export default function TodoScreen() {
         )}
       </ScrollView>
 
-      {/* Create/Edit Modal */}
+      {/* Create and Edit Modal */}
       <Modal visible={showModal} transparent animationType="slide">
         <View style={styles.overlay}>
           <View style={styles.modal}>

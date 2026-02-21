@@ -1,4 +1,3 @@
-// src/screens/patient/ChatScreen.tsx
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   View,
@@ -58,7 +57,7 @@ export default function ChatScreen() {
     setInputText('');
     setSending(true);
 
-    // Optimistically add patient message
+    // adding patient message
     const optimisticMsg: ChatMessage = {
       id: `tmp_${Date.now()}`,
       patientId: user.uid,
@@ -78,7 +77,7 @@ export default function ChatScreen() {
         assignedClinicianId
       );
 
-      // Add AI reply
+      // AI reply
       const aiMsg: ChatMessage = {
         id: `ai_${Date.now()}`,
         patientId: user.uid,
@@ -92,8 +91,8 @@ export default function ChatScreen() {
 
       if (escalated) {
         Alert.alert(
-          '⚠️ Escalated to Clinician',
-          'Your enquiry has been flagged and sent to your clinician for urgent review.'
+          ' Escalated to Doctor',
+          'Your enquiry has been flagged and sent to your Doctor for urgent review.'
         );
       }
     } catch (err) {

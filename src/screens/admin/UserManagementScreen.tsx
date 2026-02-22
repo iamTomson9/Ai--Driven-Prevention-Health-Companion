@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { getAllUsers, createUserAccount, activateUser, deactivateUser } from '../../services/adminService';
-import { Card, Button, ScreenHeader, Badge, EmptyState, Input } from '../../components/common';
+import { Card, Button, ScreenHeader, Badge, EmptyState, Input } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { User, UserRole } from '../../types';
 

@@ -7,7 +7,7 @@ import { useAuth } from '../../hooks/useAuth';
 import {
   getClinicianAppointments, createAppointment, updateAppointment, cancelAppointment, getClinicianPatients,
 } from '../../services/clinicianService';
-import { Card, Button, ScreenHeader, Badge, EmptyState, Input } from '../../components/common';
+import { Card, Button, ScreenHeader, Badge, EmptyState, Input } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { Appointment, Patient } from '../../types';
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, FlatList, StyleSheet, RefreshControl, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { getAllLoginHistory } from '../../services/adminService';
-import { ScreenHeader, Badge } from '../../components/common';
+import { ScreenHeader, Badge } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { LoginHistory, UserRole } from '../../types';
 

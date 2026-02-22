@@ -3,7 +3,7 @@ import { View, Text, ScrollView, StyleSheet, RefreshControl, TouchableOpacity } 
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../hooks/useAuth';
 import { getAllPatientsAdherence } from '../../services/clinicianService';
-import { Card, ScreenHeader, StatCard, SectionHeader, EmptyState } from '../../components/common';
+import { Card, ScreenHeader, StatCard, SectionHeader, EmptyState } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { MedicationAdherence } from '../../types';
 

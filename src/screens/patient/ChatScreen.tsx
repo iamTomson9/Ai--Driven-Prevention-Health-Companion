@@ -19,7 +19,7 @@ import {
   generateSessionId,
 } from '../../services/chatService';
 import { getPatientProfile } from '../../services/patientService';
-import { ScreenHeader } from '../../components/common';
+import { ScreenHeader } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { ChatMessage } from '../../types';
 

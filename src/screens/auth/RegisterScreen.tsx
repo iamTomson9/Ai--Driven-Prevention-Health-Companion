@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { registerUser } from '../../services/authService';
-import { Button, Input } from '../../components/common';
+import { Button, Input } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { UserRole } from '../../types';
 

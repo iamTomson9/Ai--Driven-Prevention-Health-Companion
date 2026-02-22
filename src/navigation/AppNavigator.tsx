@@ -17,14 +17,14 @@ import PatientDashboardScreen from '../screens/patient/DashboardScreen';
 import PatientMedicationsScreen from '../screens/patient/MedicationsScreen';
 import PatientAppointmentsScreen from '../screens/patient/AppointmentsScreen';
 import PatientChatScreen from '../screens/patient/ChatScreen';
-import PatientTodoScreen from '../screens/patient/TodoScreen';
+import PatientTodoScreen from '../screens/shared/TodoScreen';
 
 // Employee/clinician Screens
 import ClinicianPatientsScreen from '../screens/clinician/PatientsScreen';
 import ClinicianAppointmentsScreen from '../screens/clinician/AppointmentsScreen';
 import ClinicianEnquiriesScreen from '../screens/clinician/EnquiriesScreen';
 import ClinicianAnalyticsScreen from '../screens/clinician/AnalyticsScreen';
-import ClinicianTodoScreen from '../screens/clinician/TodoScreen';
+import ClinicianTodoScreen from '../screens/shared/TodoScreen';
 
 // Admin Screens
 import AdminUsersScreen from '../screens/admin/UserManagementScreen';

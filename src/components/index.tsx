@@ -9,7 +9,7 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
-import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
+import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../constants/theme';
 
 //Button styling
 interface ButtonProps {
@@ -110,7 +110,7 @@ interface InputProps {
   value: string;
   onChangeText: (text: string) => void;
   secureTextEntry?: boolean;
-  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone';
+  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
   multiline?: boolean;
   numberOfLines?: number;
   style?: ViewStyle;

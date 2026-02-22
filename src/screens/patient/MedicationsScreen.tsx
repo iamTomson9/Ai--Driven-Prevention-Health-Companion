@@ -19,7 +19,7 @@ import {
   markMedicationSkipped,
   getPatientProfile,
 } from '../../services/patientService';
-import { Card, Button, ScreenHeader, Badge, SectionHeader, EmptyState } from '../../components/common';
+import { Card, Button, ScreenHeader, Badge, SectionHeader, EmptyState } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { MedicationLog, Medication } from '../../types';
 

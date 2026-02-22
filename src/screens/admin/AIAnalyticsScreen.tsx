@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, ScrollView, StyleSheet, RefreshControl } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { getAIAnalytics, getSystemAdherenceStats, AIAnalytics } from '../../services/adminService';
-import { Card, ScreenHeader, StatCard, SectionHeader } from '../../components/common';
+import { Card, ScreenHeader, StatCard, SectionHeader } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 
 export default function AIAnalyticsScreen() {

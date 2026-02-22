@@ -1,4 +1,3 @@
-// src/screens/patient/AppointmentsScreen.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View, Text, ScrollView, StyleSheet, RefreshControl, TouchableOpacity,
@@ -6,7 +5,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../hooks/useAuth';
 import { getPatientAppointments } from '../../services/patientService';
-import { Card, ScreenHeader, Badge, EmptyState, SectionHeader } from '../../components/common';
+import { Card, ScreenHeader, Badge, EmptyState, SectionHeader } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { Appointment } from '../../types';
 

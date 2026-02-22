@@ -8,9 +8,9 @@ import {
   getDoc,
   doc,
 } from 'firebase/firestore';
-import { db } from '../../files/firebase';
+import { db } from './firebase';
 import { User, LoginHistory, EscalatedEnquiry, MedicationAdherence } from '../types';
-import { registerUser, toggleUserStatus } from '../../files/authService';
+import { registerUser, toggleUserStatus } from './authService';
 
 //managing users 
 export const getAllUsers = async (): Promise<User[]> => {

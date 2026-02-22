@@ -1,4 +1,3 @@
-// src/services/patientService.ts
 import {
   collection,
   doc,
@@ -16,7 +15,7 @@ import {
 import { db } from './firebase';
 import { Patient, MedicationLog, Appointment, TodoItem } from '../types';
 
-// ─── Patient Profile ──────────────────────────────────────────
+//Patient Profile
 export const getPatientProfile = async (patientId: string): Promise<Patient | null> => {
   const snap = await getDoc(doc(db, 'patients', patientId));
   if (!snap.exists()) return null;
@@ -31,7 +30,7 @@ export const updatePatientProfile = async (
   await updateDoc(doc(db, 'users', patientId), data);
 };
 
-// ─── Medication Logs ──────────────────────────────────────────
+//Medication Logs
 export const getTodayMedicationLogs = async (patientId: string): Promise<MedicationLog[]> => {
   const today = new Date().toISOString().split('T')[0];
   const q = query(
@@ -78,7 +77,7 @@ export const markMedicationSkipped = async (logId: string, note?: string): Promi
   });
 };
 
-// Generate daily medication logs for a patient (call when medication is set/updated)
+// Generate daily medication logs for a patient
 export const generateDailyMedicationLogs = async (
   patientId: string,
   medications: Patient['medications'],
@@ -99,8 +98,8 @@ export const generateDailyMedicationLogs = async (
           scheduledTime: time,
           status: 'pending',
           date,
-          takenAt: null,
-          note: null,
+          takenAt: undefined,
+          note: undefined,
         } as Omit<MedicationLog, 'id'>)
       );
     }
@@ -109,7 +108,7 @@ export const generateDailyMedicationLogs = async (
   await Promise.all(batch);
 };
 
-// ─── Appointments ─────────────────────────────────────────────
+// Appointments
 export const getPatientAppointments = async (patientId: string): Promise<Appointment[]> => {
   const q = query(
     collection(db, 'appointments'),
@@ -133,7 +132,7 @@ export const getUpcomingAppointments = async (patientId: string): Promise<Appoin
   return snap.docs.map((d) => ({ ...d.data(), id: d.id } as Appointment));
 };
 
-// ─── Todo Items ───────────────────────────────────────────────
+// Todo Items
 export const getUserTodos = async (userId: string): Promise<TodoItem[]> => {
   const q = query(
     collection(db, 'todos'),

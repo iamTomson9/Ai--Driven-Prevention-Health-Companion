@@ -8,7 +8,7 @@ import { useAuth } from '../../hooks/useAuth';
 import {
   getUserTodos, createTodo, updateTodo, deleteTodo, toggleTodoComplete,
 } from '../../services/patientService';
-import { Card, Button, ScreenHeader, Badge, EmptyState } from '../../components/common';
+import { Card, Button, ScreenHeader, Badge, EmptyState } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { TodoItem } from '../../types';
 

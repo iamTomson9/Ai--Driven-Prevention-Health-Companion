@@ -10,7 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../hooks/useAuth';
 import { getUpcomingAppointments, getTodayMedicationLogs } from '../../services/patientService';
 import { getPatientProfile } from '../../services/patientService';
-import { Card, StatCard, SectionHeader, Badge, Button, ScreenHeader } from '../../components/common';
+import { Card, StatCard, SectionHeader, Badge, Button, ScreenHeader } from '../../components';
 import { COLORS, SPACING } from '../../constants/theme';
 import { Patient, Appointment, MedicationLog } from '../../types';
 

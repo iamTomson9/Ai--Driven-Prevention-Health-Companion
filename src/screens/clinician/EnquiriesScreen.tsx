@@ -3,7 +3,7 @@ import { View, Text, ScrollView, StyleSheet, RefreshControl, TouchableOpacity, M
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../hooks/useAuth';
 import { getEscalatedEnquiries, resolveEnquiry, markEnquiryReviewed } from '../../services/clinicianService';
-import { Card, ScreenHeader, Badge, EmptyState, Button } from '../../components/common';
+import { Card, ScreenHeader, Badge, EmptyState, Button } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { EscalatedEnquiry } from '../../types';
 

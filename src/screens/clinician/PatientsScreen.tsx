@@ -1,4 +1,3 @@
-// src/screens/clinician/PatientsScreen.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View, Text, ScrollView, StyleSheet, TouchableOpacity,
@@ -9,7 +8,7 @@ import { useAuth } from '../../hooks/useAuth';
 import {
   getClinicianPatients, setPatientDiagnoses, addMedicationToPatient, removeMedicationFromPatient,
 } from '../../services/clinicianService';
-import { Card, Button, ScreenHeader, Badge, EmptyState, Input } from '../../components/common';
+import { Card, Button, ScreenHeader, Badge, EmptyState, Input } from '../../components';
 import { COLORS, SPACING, BORDER_RADIUS } from '../../constants/theme';
 import { Patient, Medication } from '../../types';
 
